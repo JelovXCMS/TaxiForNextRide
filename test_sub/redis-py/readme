@@ -1,0 +1,13 @@
+
+model_test.py :
+	first test using local cleaned csv file as input to test model with redis db
+
+get_hr_dis.py
+	simple python with pandas to get idea how taxi trip distributed in a day v.s hr, also generate test_clean_request_data for test
+
+hello_redis-py.py
+	hello_world for redis-py 
+
+0604_clean_request_test.csv
+	cleaned data with only four columns
+

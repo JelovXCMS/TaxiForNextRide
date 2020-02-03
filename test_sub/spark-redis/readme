@@ -1,0 +1,7 @@
+spark-shell --jars /home/ubuntu/spark-redis/target/spark-redis-2.4.4-SNAPSHOT-jar-with-dependencies.jar
+
+run it with shell loading scala file:
+spark-shell -i test.scala
+
+or enter spark-shell, load it by :
+:load PATH_TO_FILE
