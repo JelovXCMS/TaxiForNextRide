@@ -1,0 +1,12 @@
+from : https://towardsdatascience.com/kafka-python-explained-in-10-lines-of-code-800e3e07dad1
+
+
+init kafka :
+	ansible-playbook -i hosts.yml all.yml
+
+
+create topic :
+	kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic numtest
+
+
+for smart_open , open files and connect to s3 , see https://github.com/RaRe-Technologies/smart_open/blob/master/README.rst#migrating-to-the-new-open-function
