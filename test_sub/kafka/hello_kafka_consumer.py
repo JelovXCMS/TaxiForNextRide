@@ -5,7 +5,7 @@ from json import loads
 
 consumer = KafkaConsumer(
     'numtest',
-     bootstrap_servers=['localhost:9092'],
+     bootstrap_servers=['10.0.0.11:9092','10.0.0.13:9092','10.0.0.14:9092'],
      auto_offset_reset='earliest',
      enable_auto_commit=True,
      group_id='my-group',
