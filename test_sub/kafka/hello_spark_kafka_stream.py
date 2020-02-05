@@ -30,19 +30,21 @@ kafkaStream = KafkaUtils.createDirectStream(ssc, [topic], {"metadata.broker.list
 lines = kafkaStream.map(lambda x: x[1])
 
 
-print("\n\nhello \n\n")
-kafkaStream.pprint()
-lines.count().pprint()
-lines.pprint()
-print(lines)
-print(lines.count())
-print(lines.count().pprint())
-
-print("\n\n\hello2 \n\n")
-
+## print("\n\nhello \n\n")
+## kafkaStream.pprint()
+## lines.count().pprint()
+print( type(lines.pprint()))
+## print(lines)
+## print(lines.count())
+## print(lines.count().pprint())
+## 
+## print("\n\n\hello2 \n\n")
 
 ssc.start()
+
 ssc.awaitTermination()
+
+
 
 
 #kafkaStream = KafkaUtils.createStream(streamingContext, \
