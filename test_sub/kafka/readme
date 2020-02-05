@@ -10,3 +10,18 @@ create topic :
 
 
 for smart_open , open files and connect to s3 , see https://github.com/RaRe-Technologies/smart_open/blob/master/README.rst#migrating-to-the-new-open-function
+
+
+
+kafkadrop :
+
+based on https://hub.docker.com/r/obsidiandynamics/kafdrop
+install docker by :
+	sudo apt-get install docker.io
+
+docker run -d --rm -p 9000:9000 \
+    -e KAFKA_BROKERCONNECT=10.0.0.11:9092,10.0.0.13:9092,10.0.0.14:9092 \
+    -e JVM_OPTS="-Xms32M -Xmx64M" \
+    -e SERVER_SERVLET_CONTEXTPATH="/" \
+    obsidiandynamics/kafdrop:latest
+ 
