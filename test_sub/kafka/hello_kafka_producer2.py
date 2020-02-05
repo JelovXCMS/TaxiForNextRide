@@ -12,17 +12,19 @@ producer = KafkaProducer(bootstrap_servers=['10.0.0.11:9092','10.0.0.13:9092','1
 
 count=0
 
+topic='TaxiData'
+
 fpath='s3://s3nyctaxi/yellow_tripdata_2018-06.csv'
 for msg in smart_open(fpath):
     #print(repr(msg))
     #break
-    producer.send('numtest',msg)
+    producer.send(topic,msg)
     producer.flush()
 
     count +=1
     if count ==20 :    ## take rest for 100 messages
-        #sleep(2)
-        break
+        sleep(2)
+        #break
         count = 0
 
 # for e in range(1000):

@@ -3,8 +3,10 @@ from kafka import KafkaConsumer
 from json import loads
 
 
+topic='TaxiData'
+
 consumer = KafkaConsumer(
-    'numtest',
+     topic,
      bootstrap_servers=['10.0.0.11:9092','10.0.0.13:9092','10.0.0.14:9092'],
      auto_offset_reset='earliest',
      enable_auto_commit=True,
