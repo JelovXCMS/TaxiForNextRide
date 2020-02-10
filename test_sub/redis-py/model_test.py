@@ -46,16 +46,18 @@ Trips[1].split(',')[4] # drop off time of first entry
 
 #PickDT=Trips[1].split(',')[1]
 #DropDT=Trips[1].split(',')[2]
-PickDT=datetime.strptime(  Trips[1].split(',')[1] , '%Y-%m-%d %H:%M:%S')
-DropDT=datetime.strptime(  Trips[1].split(',')[2] , '%Y-%m-%d %H:%M:%S')
-PickLId=Trips[1].split(',')[3]
-DropLId=Trips[1].split(',')[4]
+
+#PickDT=datetime.strptime(  Trips[1].split(',')[1] , '%Y-%m-%d %H:%M:%S')
+#DropDT=datetime.strptime(  Trips[1].split(',')[2] , '%Y-%m-%d %H:%M:%S')
+#PickLId=Trips[1].split(',')[3]
+#DropLId=Trips[1].split(',')[4]
 
 #PickDate=datetime.strptime( PickDT, '%Y-%m-%d %H:%M:%S').date()
 #PickTime=datetime.strptime( PickDT, '%Y-%m-%d %H:%M:%S').time()
 #DropTime=datetime.strptime( DropDT, '%Y-%m-%d %H:%M:%S').time()
-TravelTime = (DropDT - PickDT).total_seconds()
-PickTimeAbs = PickDT.hour*60*60+PickDT.minute*60+PickDT.second   
+
+#TravelTime = (DropDT - PickDT).total_seconds()
+#PickTimeAbs = PickDT.hour*60*60+PickDT.minute*60+PickDT.second   
 
 
 
@@ -72,7 +74,7 @@ def getTrip(cnt):
 PickDT,DropDT,PickLId,DropLId,TravelTime,PickTimeAbs= getTrip(2)
 print(DropDT)
 
-
+print(type(PickDT.day))
 
 ### pre-skip , skip 0-10 hour
 

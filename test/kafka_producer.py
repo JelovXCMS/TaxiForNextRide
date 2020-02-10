@@ -15,7 +15,7 @@ for msg in smart_open(fpath):
     producer.flush()
 
     count+=1
-    if count ==20 :    ## take rest for several messages
-        sleep(2)
+    if count ==200 :    ## take rest for several messages
+        #sleep(1)
         count = 0 
 
