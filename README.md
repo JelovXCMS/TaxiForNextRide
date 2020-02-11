@@ -17,3 +17,8 @@ Since there is no taxiID in the data, waiting time is not avalible directly from
 <img src="https://github.com/JelovXCMS/TaxiForNextRide/blob/master/image/archtechture.png" alt="alt text" width="700">
 
 Data is stored in Amaozn S3, ingested by Kafka, then a program consume message from kafka to do the simulation with its taxi driver distribtuion store in redis for fast and scalable operations. The waiting time info is then saved into postgresql and user could access those info via dash.
+
+
+**pre-processing**
+
+In order simulate the real-time streaming, data need to be soreted by time. 
