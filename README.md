@@ -1,9 +1,11 @@
 # Perpetual Taxi
 
 **Introduction**
+
 This is a project working during the Insight Data Engineer fellowship. The goal is providing taxi driver an estimation of waiting time for his next rider at different region. Taxi driver could use this info to help him better determine his next destination and optimize his earning.
 
 **Data input**
+
 NYC TLC Trip Record Data
 
 
