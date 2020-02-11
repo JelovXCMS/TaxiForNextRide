@@ -1,8 +1,7 @@
 import redis
 
-r= redis.Redis()
 
-r3=redis.Redis()
+r3=redis.Redis(host='10.0.0.12',port=6379)
 r3.zadd("Zone1Arr",{"taxi:01":151})
 r3.zadd("Zone1Arr",{"taxi:02":154})
 r3.zadd("Zone1Arr",{"taxi:03":138})
