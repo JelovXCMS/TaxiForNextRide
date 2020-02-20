@@ -22,7 +22,10 @@ con=create_engine(url)
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
-q="select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '2019-06-02 12:00:00' and '2019-06-02 13:00:00 'group by zoneid order by Avg_Wait_Time"
+#q="select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '2019-06-02 12:00:00' and '2019-06-02 13:00:00 'group by zoneid order by Avg_Wait_Time"
+
+q="select  b.zoneid, zone_name, avg_wait_time from taxizoneinfo a right join ( select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '2019-06-02 12:00:00' and '2019-06-02 13:00:00 'group by zoneid) AS b on a.zoneid = b.zoneid order by Avg_Wait_Time"
+
 df=pd.read_sql(q,con)
 
 dt_taxi = dash_table.DataTable(
@@ -72,7 +75,8 @@ def update_table(date,time):
     hr_int=int(time.split(':')[0])
     min_str=time.split(':')[1]
     sec_str=time.split(':')[2]
-    q="select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '{} {}:{}:{}' and '{} {}:{}:{} 'group by zoneid order by Avg_Wait_Time".format(date_str,hr_int-2,min_str,sec_str,date_str,hr_int,min_str,sec_str)
+    q="select  b.zoneid, zone_name, avg_wait_time from taxizoneinfo a right join ( select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '{} {}:{}:{}' and '{} {}:{}:{} 'group by zoneid ) AS b on a.zoneid = b.zoneid order by Avg_Wait_Time".format(date_str,hr_int-2,min_str,sec_str,date_str,hr_int,min_str,sec_str)
+#    q="select avg_wait_time, b.zoneid, zone_name from taxizoneinfo a right join ( select cast(AVG(waitt)/60  as decimal(6,2) ) as avg_wait_time ,zoneid from taxi_table where dat between '2019-06-02 12:00:00' and '2019-06-02 13:00:00 'group by zoneid order by Avg_Wait_Time ) AS b on a.zoneid = b.zoneid"
     df=pd.read_sql(q,con)
     return df.to_dict('records')
 
