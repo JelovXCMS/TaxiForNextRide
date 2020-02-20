@@ -1,4 +1,4 @@
-## from basic module usage
+# from basic module usage
 
 import psycopg2
 from psycopg2 import Error
@@ -32,7 +32,7 @@ cur.execute("INSERT INTO taxi_table (dat, waitT, zoneId) VALUES (%s, %s, %s)",
 cur.execute("SELECT * FROM taxi_table;")
 cur.fetchone()
 
-conn.commit()
+#conn.commit()
 cur.close()
 conn.close()
 
