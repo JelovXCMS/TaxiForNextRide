@@ -8,14 +8,20 @@ from dash.dependencies import Input, Output
 import dash_table
 from sqlalchemy import create_engine
 
+import yaml
+with open(r'./config.yaml') as file:
+  psql_info=yaml.load(file, Loader=yaml.FullLoader)
+
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-user='jelov'
-password='jelov_psql_pwd'
-host='10.0.0.10'
-port='5432'
-db='db_psql_taxi'
+user = psql_info['psql_user']
+password = psql_info['psql_pwd']
+host = psql_info['psql_host']
+port = psql_info['psql_port']
+db = psql_info['psql_db']
+
 url='postgresql://{}:{}@{}:{}/{}'.format(user,password,host,port,db)
 
 con=create_engine(url)
